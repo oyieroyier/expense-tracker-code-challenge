@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import './App.css';
 import ExpenseList from './components/ExpenseList';
+import ExpenseFilter from './components/ExpenseFilter';
 
 function App() {
 	const [expenses, setExpenses] = useState([
-		{ id: 1, description: 'Dummy expense', amount: 100, category: 'Utilities' },
+		{ id: 1, description: 'Dummy expense', amount: 100, category: 'Groceries' },
 		{
 			id: 2,
 			description: 'Dummy expense 2',
 			amount: 200,
-			category: 'Utilities',
+			category: 'Entertainment',
 		},
 		{
 			id: 3,
@@ -21,7 +21,7 @@ function App() {
 			id: 4,
 			description: 'Dummy expense 4',
 			amount: 400,
-			category: 'Utilities',
+			category: 'Groceries',
 		},
 		{
 			id: 5,
@@ -31,10 +31,20 @@ function App() {
 		},
 	]);
 
+	const [selectedCategory, setSelectedCategory] = useState('');
+
+	// Expenses the user sees based on the filter.
+	const visibleExpenses = selectedCategory
+		? expenses.filter((expense) => expense.category === selectedCategory)
+		: expenses;
+
 	return (
 		<>
+			<ExpenseFilter
+				onSelectCategory={(category) => setSelectedCategory(category)}
+			/>
 			<ExpenseList
-				expenses={expenses}
+				expenses={visibleExpenses}
 				onDelete={(id) =>
 					setExpenses(expenses.filter((expense) => expense.id !== id))
 				}

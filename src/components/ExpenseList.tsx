@@ -25,9 +25,10 @@ interface Props {
 
 const ExpenseList = ({ expenses, onDelete }: Props) => {
 	if (!expenses.length) return null;
+
 	return (
 		<TableContainer>
-			<Table  variant={'striped'}>
+			<Table variant={'striped'}>
 				<Thead>
 					<Tr bg={'cyan.400'}>
 						<Th>Description</Th>
