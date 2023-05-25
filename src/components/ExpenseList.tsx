@@ -28,9 +28,9 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
 
 	return (
 		<TableContainer>
-			<Table variant={'striped'}>
+			<Table variant={'striped'} colorScheme='teal'>
 				<Thead>
-					<Tr bg={'cyan.400'}>
+					<Tr>
 						<Th>Description</Th>
 						<Th>Amount</Th>
 						<Th>Category</Th>
@@ -41,7 +41,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
 					{expenses.map((expense) => (
 						<Tr key={expense.id}>
 							<Td>{expense.description}</Td>
-							<Td>{expense.amount}</Td>
+							<Td>${expense.amount}</Td>
 							<Td>{expense.category}</Td>
 							<Td>
 								<Button
@@ -57,7 +57,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
 					))}
 				</Tbody>
 				<Tfoot>
-					<Tr>
+					<Tr bg={"telegram.500"} color={"white"}>
 						<Td>Total</Td>
 						<Td>
 							$

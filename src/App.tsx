@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import ExpenseList from './components/ExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
+import ExpenseForm from './components/ExpenseForm';
+import { Box } from '@chakra-ui/react';
+
+export const categories = ['Groceries', 'Utilities', 'Entertainment'];
 
 function App() {
 	const [expenses, setExpenses] = useState([
@@ -40,9 +44,14 @@ function App() {
 
 	return (
 		<>
-			<ExpenseFilter
-				onSelectCategory={(category) => setSelectedCategory(category)}
-			/>
+			<Box maxW={'sm'} p={'1rem'}>
+				<ExpenseForm />
+			</Box>
+			<Box maxW={"md"}>
+				<ExpenseFilter
+					onSelectCategory={(category) => setSelectedCategory(category)}
+				/>
+			</Box>
 			<ExpenseList
 				expenses={visibleExpenses}
 				onDelete={(id) =>

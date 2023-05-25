@@ -1,4 +1,5 @@
 import { Select } from '@chakra-ui/react';
+import { categories } from '../App';
 
 interface Props {
 	onSelectCategory: (category: string) => void;
@@ -13,9 +14,11 @@ const ExpenseFilter = ({ onSelectCategory }: Props) => {
 			bg={'blue.100'}
 		>
 			<option value="">All Categories</option>
-			<option value="Groceries">Groceries</option>
-			<option value="Utilities">Utilities</option>
-			<option value="Entertainment">Entertainment</option>
+			{categories.map((category, index: number) => (
+				<option key={index} value={category}>
+					{category}
+				</option>
+			))}
 		</Select>
 	);
 };
