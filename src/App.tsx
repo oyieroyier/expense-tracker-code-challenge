@@ -5,7 +5,6 @@ import ExpenseForm from './components/ExpenseForm';
 import { Box } from '@chakra-ui/react';
 import categories from './categories';
 
-
 function App() {
 	const [expenses, setExpenses] = useState([
 		{ id: 1, description: 'Dummy expense', amount: 100, category: 'Groceries' },
@@ -45,9 +44,16 @@ function App() {
 	return (
 		<>
 			<Box maxW={'sm'} p={'1rem'}>
-				<ExpenseForm />
+				<ExpenseForm
+					onSubmit={(newExpense) =>
+						setExpenses([
+							...expenses,
+							{ ...newExpense, id: expenses.length + 1 },
+						])
+					}
+				/>
 			</Box>
-			<Box maxW={"md"}>
+			<Box maxW={'md'}>
 				<ExpenseFilter
 					onSelectCategory={(category) => setSelectedCategory(category)}
 				/>
