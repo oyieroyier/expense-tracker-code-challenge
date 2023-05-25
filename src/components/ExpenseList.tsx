@@ -28,7 +28,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
 
 	return (
 		<TableContainer>
-			<Table variant={'striped'} colorScheme='teal'>
+			<Table variant={'striped'} colorScheme="teal">
 				<Thead>
 					<Tr>
 						<Th>Description</Th>
@@ -57,7 +57,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
 					))}
 				</Tbody>
 				<Tfoot>
-					<Tr bg={"telegram.500"} color={"white"}>
+					<Tr bg={'telegram.500'} color={'white'}>
 						<Td>Total</Td>
 						<Td>
 							$

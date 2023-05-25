@@ -43,10 +43,11 @@ const ExpenseForm = ({ onSubmit }: Props) => {
 		resolver: zodResolver(schema),
 	});
 	return (
-		<FormControl as={"form"}
-		onSubmit={handleSubmit((data) => {
-			onSubmit(data), reset();
-		})}
+		<FormControl
+			as={'form'}
+			onSubmit={handleSubmit((data) => {
+				onSubmit(data), reset();
+			})}
 		>
 			<Box mb={3}>
 				<FormLabel htmlFor="description"> Description</FormLabel>
