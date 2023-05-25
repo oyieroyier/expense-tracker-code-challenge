@@ -3,8 +3,8 @@ import ExpenseList from './components/ExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
 import ExpenseForm from './components/ExpenseForm';
 import { Box } from '@chakra-ui/react';
+import categories from './categories';
 
-export const categories = ['Groceries', 'Utilities', 'Entertainment'];
 
 function App() {
 	const [expenses, setExpenses] = useState([
